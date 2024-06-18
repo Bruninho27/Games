@@ -7,18 +7,19 @@ namespace Core
     {
         [SerializeField] private Button leftButton;
         [SerializeField] private Button rightButton;
-        
+
         [SerializeField] private GameManager gameManager;
-        
+
         private Spawnable _spawnableSelect;
 
         private void Awake()
         {
             leftButton.onClick.AddListener(OnLeftButtonClick);
             rightButton.onClick.AddListener(OnRightButtonClick);
+
         }
 
-        private void OnLeftButtonClick() => CheckIfIsCorrect(true);
+        private void OnLeftButtonClick() => CheckIfIsCorrect(true); 
         private void OnRightButtonClick() => CheckIfIsCorrect(false);
         
         private void OnTriggerEnter2D(Collider2D collision)
@@ -29,6 +30,7 @@ namespace Core
 
         private void CheckIfIsCorrect(bool inputValue)
         {
+            
             if (_spawnableSelect != null)
             {
                 if (_spawnableSelect.isFood == inputValue)
@@ -48,6 +50,8 @@ namespace Core
             {
                 Debug.LogWarning("Nenhum objeto no colisor.");
             }
+          
         }
+      
     }
 }
