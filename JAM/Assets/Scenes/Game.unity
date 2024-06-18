@@ -847,8 +847,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071ee78fb9f25dd4e879e923178cafd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  timerText: {fileID: 152947228}
   scoreText: {fileID: 2066045235}
+  gameDuration: 60
+  score: 0
 --- !u!4 &1753080313
 Transform:
   m_ObjectHideFlags: 0
