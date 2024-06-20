@@ -10,9 +10,9 @@ namespace Core
         [SerializeField] private Text scoreText;
         [SerializeField] private float gameDuration = 60f;
         
-        public int score = 0;
+        public int score;
         private float _timeRemaining;
-        private bool _isGameOver = false;
+        private bool _isGameOver;
 
         private void Awake()
         {
@@ -39,17 +39,31 @@ namespace Core
                 
             timerText.text = $"{minutes:00}:{seconds:00}";
         }
-
-        private void EndGame()
-        {
-            _isGameOver = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        
+        public void UpdateScoreText() => scoreText.text = "Score: " + score;
         
         public void IncreaseScore()
         {
             score += 10;
-            scoreText.text = "Score: " + score;
+            UpdateScoreText();
+        }
+        
+        public void IncreaseTime()
+        {
+            _timeRemaining += 3;
+            UpdateTimerDisplay(_timeRemaining);
+        }
+        
+        public void DecreaseTime()
+        {
+            _timeRemaining -= 5;
+            UpdateTimerDisplay(_timeRemaining);
+        }
+        
+        private void EndGame()
+        {
+            _isGameOver = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
