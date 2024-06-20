@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace Core
 {
@@ -9,6 +10,8 @@ namespace Core
         [SerializeField] private Text timerText;
         [SerializeField] private Text scoreText;
         [SerializeField] private float gameDuration = 60f;
+
+        [SerializeField] private Spawner spawner;
         
         public int score;
         private float _timeRemaining;
@@ -46,6 +49,8 @@ namespace Core
         {
             score += 10;
             UpdateScoreText();
+
+            spawner.IncreaseSpeed();
         }
         
         public void IncreaseTime()

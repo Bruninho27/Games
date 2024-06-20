@@ -631,6 +631,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &598194072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1315424780353187234, guid: 290254e430d343e41b51097af49f3d59, type: 3}
+  m_PrefabInstance: {fileID: 4411172888197274469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9367ccdc3524f14187ad6267844372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &599271743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,6 +1318,7 @@ MonoBehaviour:
   timerText: {fileID: 152947228}
   scoreText: {fileID: 2066045235}
   gameDuration: 60
+  spawner: {fileID: 598194072}
   score: 0
 --- !u!4 &1753080313
 Transform:
@@ -1974,13 +1986,25 @@ PrefabInstance:
       propertyPath: speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1315424780353187234, guid: 290254e430d343e41b51097af49f3d59, type: 3}
+      propertyPath: spawnAreaSize.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315424780353187234, guid: 290254e430d343e41b51097af49f3d59, type: 3}
+      propertyPath: spawnAreaSize.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315424780353187234, guid: 290254e430d343e41b51097af49f3d59, type: 3}
+      propertyPath: speedMultiplier
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2389766386078387886, guid: 290254e430d343e41b51097af49f3d59, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2389766386078387886, guid: 290254e430d343e41b51097af49f3d59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2389766386078387886, guid: 290254e430d343e41b51097af49f3d59, type: 3}
       propertyPath: m_LocalPosition.z
