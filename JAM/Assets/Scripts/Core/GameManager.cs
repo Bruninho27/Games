@@ -12,7 +12,8 @@ namespace Core
         [SerializeField] private float gameDuration = 60f;
 
         [SerializeField] private Spawner spawner;
-        
+        [SerializeField] private SoundManager soundManager;
+
         public int score;
         private float _timeRemaining;
         private bool _isGameOver;
@@ -26,8 +27,11 @@ namespace Core
             timerText.text = "Timer: 00:00";
         }
 
-        private void Start() => _timeRemaining = gameDuration;
-        
+        private void Start()
+        {
+            soundManager.PlayMainTheme();
+            _timeRemaining = gameDuration;
+        }
         private void Update()
         {
             if (_isGameOver) return;
