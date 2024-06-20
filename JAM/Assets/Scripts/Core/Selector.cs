@@ -16,7 +16,6 @@ namespace Core
         {
             leftButton.onClick.AddListener(OnLeftButtonClick);
             rightButton.onClick.AddListener(OnRightButtonClick);
-
         }
 
         private void OnLeftButtonClick() => CheckIfIsCorrect(true); 
@@ -30,17 +29,17 @@ namespace Core
 
         private void CheckIfIsCorrect(bool inputValue)
         {
-            
             if (_spawnableSelect != null)
             {
                 if (_spawnableSelect.isFood == inputValue)
                 {
                     gameManager.IncreaseScore();
-                    Debug.Log("Certo!");
+                    gameManager.UpdateScoreText();
+                    gameManager.IncreaseTime();
                 }
                 else
-                {
-                    Debug.Log("Errado!");
+                {   
+                    gameManager.DecreaseTime();
                 }
                 
                 Destroy(_spawnableSelect.gameObject);
@@ -50,8 +49,6 @@ namespace Core
             {
                 Debug.LogWarning("Nenhum objeto no colisor.");
             }
-          
         }
-      
     }
 }
