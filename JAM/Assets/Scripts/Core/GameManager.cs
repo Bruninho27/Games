@@ -19,7 +19,7 @@ namespace Core
 
         private void Awake()
         {
-            scoreText.text = "Score: " + score;
+            scoreText.text = "Pontos: " + score;
             timerText.text = "Timer: 00:00";
         }
 
@@ -43,7 +43,7 @@ namespace Core
             timerText.text = $"{minutes:00}:{seconds:00}";
         }
         
-        public void UpdateScoreText() => scoreText.text = "Score: " + score;
+        public void UpdateScoreText() => scoreText.text = "Pontos: " + score;
         
         public void IncreaseScore()
         {
