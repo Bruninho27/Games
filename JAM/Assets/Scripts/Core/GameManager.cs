@@ -21,7 +21,7 @@ namespace Core
         private void Awake()
         {
             _comboCounter = 1;
-            scoreText.text = "Pontos: " + score;
+            scoreText.text = "" + score;
             comboCounterText.text = _comboCounter + "X";
             timerText.text = "Timer: 00:00";
         }
@@ -50,7 +50,7 @@ namespace Core
 
         public void UpdateComboCounterText() => comboCounterText.text = _comboCounter + "X";
 
-        public void UpdateScoreText() => scoreText.text = "Pontos: " + score;
+        public void UpdateScoreText() => scoreText.text = "" + score;
 
         public void IncreaseCombo() => ++_comboCounter;
 
