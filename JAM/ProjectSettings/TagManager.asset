@@ -7,6 +7,7 @@ TagManager:
   - Comestiveis
   - nao_Comestiveis
   - LIxo
+  - Audio
   layers:
   - Default
   - TransparentFX
