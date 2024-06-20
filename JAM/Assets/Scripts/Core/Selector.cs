@@ -18,11 +18,21 @@ namespace Core
             rightButton.onClick.AddListener(OnRightButtonClick);
         }
 
-        private void OnLeftButtonClick() => CheckIfIsCorrect(true); 
+        private void OnLeftButtonClick() => CheckIfIsCorrect(true);
         private void OnRightButtonClick() => CheckIfIsCorrect(false);
         
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            if (_spawnableSelect)
+            {
+                Destroy(_spawnableSelect.gameObject);
+                Destroy(collision.GetComponent<Spawnable>().gameObject);
+                gameManager.DecreaseTime();
+                gameManager.ResetCombo();
+                gameManager.UpdateComboCounterText();
+
+            }
+
             _spawnableSelect = collision.GetComponent<Spawnable>();
             _spawnableSelect.speed = 0f;
         }
@@ -33,15 +43,19 @@ namespace Core
             {
                 if (_spawnableSelect.isFood == inputValue)
                 {
+                    gameManager.IncreaseCombo();
                     gameManager.IncreaseScore();
                     gameManager.UpdateScoreText();
+                    gameManager.UpdateComboCounterText();
                     gameManager.IncreaseTime();
                 }
                 else
                 {   
+                    gameManager.ResetCombo();
                     gameManager.DecreaseTime();
+                    gameManager.UpdateComboCounterText();
                 }
-                
+
                 Destroy(_spawnableSelect.gameObject);
                 _spawnableSelect = null;
             }

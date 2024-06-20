@@ -28,8 +28,13 @@ namespace Core
             SpawnObject();
             _timer = 0;
         }
-        
-        private bool IsSpawnAreaClear() => Physics2D.OverlapBox(_spawnPoint.position, spawnAreaSize, 0f);
+
+        private bool IsSpawnAreaClear()
+        {
+            var colliders = Physics2D.OverlapBoxAll(_spawnPoint.position, spawnAreaSize, 0f);
+
+            return colliders.Length == 0;
+        }
 
         private void SpawnObject()
         {
@@ -40,6 +45,10 @@ namespace Core
             Instantiate(objectToSpawn, transform.position, Quaternion.identity);
         }
         
-        public void IncreaseSpeed() => spawnInterval -= spawnInterval * speedMultiplier;
+        public void IncreaseSpeed()
+        {
+            speed += speed * speedMultiplier * Time.deltaTime;
+            spawnInterval -= spawnInterval * speedMultiplier;
+        }
     }
 }
