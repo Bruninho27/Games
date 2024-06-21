@@ -9,6 +9,6 @@ namespace Core
 
         private void Update() => Move();
         
-        private void Move() => transform.Translate(Vector3.down * (speed * Time.deltaTime));
+        private void Move() => transform.Translate(Vector3.right * (speed * Time.deltaTime));
     }
 }
