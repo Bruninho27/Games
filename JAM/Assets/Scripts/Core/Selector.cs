@@ -17,10 +17,7 @@ namespace Core
         {
             leftButton.onClick.AddListener(OnLeftButtonClick);
             rightButton.onClick.AddListener(OnRightButtonClick);
-<<<<<<< HEAD
             audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-=======
->>>>>>> 8d8194af9c9a74ad7752118ccb138d111b47ec10
         }
 
         private void OnLeftButtonClick() => CheckIfIsCorrect(true);
@@ -55,21 +52,13 @@ namespace Core
                     gameManager.IncreaseTime();
                 }
                 else
-<<<<<<< HEAD
                 {
                     audioManager.PlaySFX(audioManager.errar);
-=======
-                {   
->>>>>>> 8d8194af9c9a74ad7752118ccb138d111b47ec10
                     gameManager.ResetCombo();
                     gameManager.DecreaseTime();
                     gameManager.UpdateComboCounterText();
                 }
-<<<<<<< HEAD
                
-=======
-
->>>>>>> 8d8194af9c9a74ad7752118ccb138d111b47ec10
                 Destroy(_spawnableSelect.gameObject);
                 _spawnableSelect = null;
             }
