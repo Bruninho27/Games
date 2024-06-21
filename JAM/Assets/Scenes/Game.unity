@@ -2515,6 +2515,14 @@ PrefabInstance:
       propertyPath: speedMultiplier
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1315424780353187234, guid: 290254e430d343e41b51097af49f3d59, type: 3}
+      propertyPath: spawnableObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315424780353187234, guid: 290254e430d343e41b51097af49f3d59, type: 3}
+      propertyPath: spawnableObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 8796196796700959310, guid: 2d5e2c8d5e6f7f645b14045282c0f72d, type: 3}
     - target: {fileID: 2389766386078387886, guid: 290254e430d343e41b51097af49f3d59, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
