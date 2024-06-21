@@ -17,7 +17,7 @@ namespace Core
         {
             leftButton.onClick.AddListener(OnLeftButtonClick);
             rightButton.onClick.AddListener(OnRightButtonClick);
-            audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+            _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         }
 
         private void Update()
@@ -41,6 +41,7 @@ namespace Core
                 gameManager.DecreaseTime();
                 gameManager.ResetCombo();
                 gameManager.UpdateComboCounterText();
+                _audioManager.PlaySfx(_audioManager.passouItem);
             }
 
             _spawnableSelect = collision.GetComponent<Spawnable>();
@@ -53,6 +54,7 @@ namespace Core
             
             if (_spawnableSelect.isFood == inputValue)
             {
+                _audioManager.PlaySfx(_audioManager.novoobjesteira);
                 gameManager.IncreaseCombo();
                 gameManager.IncreaseScore();
                 gameManager.UpdateScoreText();
@@ -61,7 +63,7 @@ namespace Core
             }
             else
             {   
-                audioManager.PlaySFX(audioManager.errar);
+                _audioManager.PlaySfx(_audioManager.errar);
                 gameManager.ResetCombo();
                 gameManager.DecreaseTime();
                 gameManager.UpdateComboCounterText();
@@ -69,7 +71,6 @@ namespace Core
 
             Destroy(_spawnableSelect.gameObject);
             _spawnableSelect = null;
-        }
         }
     }
 }
