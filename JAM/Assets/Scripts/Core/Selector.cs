@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,15 @@ namespace Core
             rightButton.onClick.AddListener(OnRightButtonClick);
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                CheckIfIsCorrect(false);
+            
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+                CheckIfIsCorrect(true);
+        }
+
         private void OnLeftButtonClick() => CheckIfIsCorrect(true);
         private void OnRightButtonClick() => CheckIfIsCorrect(false);
         
@@ -30,7 +40,6 @@ namespace Core
                 gameManager.DecreaseTime();
                 gameManager.ResetCombo();
                 gameManager.UpdateComboCounterText();
-
             }
 
             _spawnableSelect = collision.GetComponent<Spawnable>();
@@ -39,30 +48,25 @@ namespace Core
 
         private void CheckIfIsCorrect(bool inputValue)
         {
-            if (_spawnableSelect != null)
+            if (_spawnableSelect == null) return;
+            
+            if (_spawnableSelect.isFood == inputValue)
             {
-                if (_spawnableSelect.isFood == inputValue)
-                {
-                    gameManager.IncreaseCombo();
-                    gameManager.IncreaseScore();
-                    gameManager.UpdateScoreText();
-                    gameManager.UpdateComboCounterText();
-                    gameManager.IncreaseTime();
-                }
-                else
-                {   
-                    gameManager.ResetCombo();
-                    gameManager.DecreaseTime();
-                    gameManager.UpdateComboCounterText();
-                }
-
-                Destroy(_spawnableSelect.gameObject);
-                _spawnableSelect = null;
+                gameManager.IncreaseCombo();
+                gameManager.IncreaseScore();
+                gameManager.UpdateScoreText();
+                gameManager.UpdateComboCounterText();
+                gameManager.IncreaseTime();
             }
             else
-            {
-                Debug.LogWarning("Nenhum objeto no colisor.");
+            {   
+                gameManager.ResetCombo();
+                gameManager.DecreaseTime();
+                gameManager.UpdateComboCounterText();
             }
+
+            Destroy(_spawnableSelect.gameObject);
+            _spawnableSelect = null;
         }
     }
 }

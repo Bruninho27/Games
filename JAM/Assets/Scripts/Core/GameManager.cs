@@ -9,6 +9,7 @@ namespace Core
         [SerializeField] private Text timerText;
         [SerializeField] private Text scoreText;
         [SerializeField] private Text comboCounterText;
+        [SerializeField] private GameObject comboCounterDisplay;
         [SerializeField] private float gameDuration = 60f;
 
         [SerializeField] private Spawner spawner;
@@ -36,8 +37,6 @@ namespace Core
             UpdateTimerDisplay(_timeRemaining);
 
             if (_timeRemaining <= 0) EndGame();
-
-            Debug.Log(_comboCounter);
         }
         
         private void UpdateTimerDisplay(float time)
@@ -48,7 +47,18 @@ namespace Core
             timerText.text = $"{minutes:00}:{seconds:00}";
         }
 
-        public void UpdateComboCounterText() => comboCounterText.text = _comboCounter + "X";
+        public void UpdateComboCounterText()
+        {
+            if (_comboCounter == 1)
+            {
+                comboCounterDisplay.SetActive(false);
+            }
+            else
+            {
+                comboCounterDisplay.SetActive(true);
+                comboCounterText.text = _comboCounter + "X";
+            }
+        }
 
         public void UpdateScoreText() => scoreText.text = "" + score;
 

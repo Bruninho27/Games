@@ -47,7 +47,7 @@ namespace Core
         
         public void IncreaseSpeed()
         {
-            speed += speed * speedMultiplier * Time.deltaTime;
+            speed += speed * speedMultiplier;
             spawnInterval -= spawnInterval * speedMultiplier;
         }
     }
