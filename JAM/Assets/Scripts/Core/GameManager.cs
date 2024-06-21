@@ -25,6 +25,7 @@ namespace Core
             scoreText.text = "" + score;
             comboCounterText.text = _comboCounter + "X";
             timerText.text = "Timer: 00:00";
+            _isGameOver = false;
         }
 
         private void Start() => _timeRemaining = gameDuration;
@@ -86,10 +87,10 @@ namespace Core
             UpdateTimerDisplay(_timeRemaining);
         }
         
-        private void EndGame()
+        public void EndGame()
         {
             _isGameOver = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("Main_menu");
         }
     }
 }
